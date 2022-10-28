@@ -1,10 +1,19 @@
-// Define variables for your color scheme
 
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+:root {
+  // All the previous variables
+
+  // Application colors
+  --color-primary:          hsl(350, 67%, 50%);
+  --color-primary-rotate:   hsl(10, 73%, 54%);
+  --color-primary-bg:       hsl(0, 85%, 96%);
+  --color-secondary:        hsl(101, 45%, 56%);
+  --color-secondary-rotate: hsl(120, 45%, 56%);
+  --color-tertiary:         hsl(49, 89%, 64%);
+  --color-glint:            hsl(210, 100%, 82%);
+
+  // Neutral colors
+  --color-white:      hsl(0, 0%, 100%);
+  --color-background: hsl(30, 50%, 98%);
+  --color-light:      hsl(0, 6%, 93%);
+  --color-dark:       var(--color-text-header);
+}
