@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
   setup do
-    @quote = qyotes(:first) # Reference to the first fixture quote
+    @quote = quotes(:first) # Reference to the first fixture quote
   end
   test "Create a new quote" do
     # When we visit the Quotes#index page we expecte to see a title with the text "Quotes"
@@ -10,13 +10,13 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     # When we click on the link with the text "New Quote" we expect to land on a page with the title "New Quote"
-    click_on "New Quote"
-    assert_selector "h1", text: "New Quote"
+    click_on "New quote"
+    assert_selector "h1", text: "New quote"
 
     # When we fill in the name input with "Capybara quote" and we click on "Create Quote"
 
     fill_in "Name", with: "Capybara quote"
-    click_on "Create Quote"
+    click_on "Create quote"
 
     # We expect to be back on the page with the title "Quotes" and to see our "Capybara Quote" added to the list
     assert_selector "h1", text: "Quote"
