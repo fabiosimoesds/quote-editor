@@ -11,15 +11,15 @@ class QuotesTest < ApplicationSystemTestCase
 
     # When we click on the link with the text "New Quote" we expect to land on a page with the title "New Quote"
     click_on "New quote"
-    assert_selector "h1", text: "New quote"
 
     # When we fill in the name input with "Capybara quote" and we click on "Create Quote"
 
     fill_in "Name", with: "Capybara quote"
+    assert_selector "h1", text: "Quotes"
     click_on "Create quote"
 
     # We expect to be back on the page with the title "Quotes" and to see our "Capybara Quote" added to the list
-    assert_selector "h1", text: "Quote"
+    assert_selector "h1", text: "Quotes"
     assert_text "Capybara quote"
   end
 
@@ -39,10 +39,10 @@ class QuotesTest < ApplicationSystemTestCase
 
     # Click on the Edit quote that matches the first quotes.yml
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit quote"
 
     # Change the quote name to Updated quote and click on Update Quote
     fill_in "Name", with: "Updated quote"
+    assert_selector "h1", text: "Quotes"
     click_on "Update quote"
 
     # We should have the Updated quote, been updated.
