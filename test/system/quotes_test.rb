@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
   setup do
-    @quote = quotes(:first) # Reference to the first fixture quote
+    @quote = Quote.ordered.first # Reference to the first fixture quote
   end
   test "Create a new quote" do
     # When we visit the Quotes#index page we expecte to see a title with the text "Quotes"
