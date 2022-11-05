@@ -1,0 +1,22 @@
+.empty-state {
+  padding: var(--space-m);
+  border: var(--border);
+  border-style: dashed;
+  text-align: center;
+  border-color: #ff000045;
+
+  &__text {
+    font-size: var(--font-size-l);
+    color: var(--color-text-header);
+    margin-bottom: var(--space-l);
+    font-weight: bold;
+  }
+
+  &--only-child { // this modifier is not needed I could do the display none on the class itself
+    display: none;
+
+    &:only-child {
+      display: revert;
+    }
+  }
+}
