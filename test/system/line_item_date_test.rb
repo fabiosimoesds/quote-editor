@@ -6,6 +6,7 @@ class LineItemDateTest < ApplicationSystemTestCase
     @quote = Quote.order(created_at: :desc).first # Reference to the first fixture quote
     visit quotes_path
     click_on @quote.name
+    @date = LineItemDate.order(created_at: :desc).first
   end
 
   test 'Check the page' do
@@ -16,8 +17,21 @@ class LineItemDateTest < ApplicationSystemTestCase
     # Click on New Date
     click_on "New date"
 
-    # fill_in 'Date', with: Date.current + 1
+    fill_in 'Date', with: Date.current + 1
     click_on 'Create date'
     assert_text I18n.l(Date.current + 1, format: :long)
+  end
+
+  test 'Edit and Update Date' do
+    click_on 'Edit', match: :first
+
+    fill_in 'Date', with: Date.current + 5
+    click_on 'Update date'
+    assert_text I18n.l(Date.current + 5, format: :long)
+  end
+
+  test 'Destroy Date' do
+    click_on 'Delete', match: :first
+    assert_no_text @date.date
   end
 end
