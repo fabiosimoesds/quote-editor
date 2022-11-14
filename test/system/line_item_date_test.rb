@@ -17,9 +17,9 @@ class LineItemDateTest < ApplicationSystemTestCase
     # Click on New Date
     click_on "New date"
 
-    fill_in 'Date', with: Date.current + 1
+    fill_in "Date", with: Date.current + 1.day
     click_on 'Create date'
-    assert_text I18n.l(Date.current + 1, format: :long)
+    assert_text I18n.l(Date.current + 1.day, format: :long)
   end
 
   test 'Edit and Update Date' do
@@ -31,7 +31,9 @@ class LineItemDateTest < ApplicationSystemTestCase
   end
 
   test 'Destroy Date' do
-    click_on 'Delete', match: :first
+    accept_confirm do
+      click_on 'Delete', match: :first
+    end
     assert_no_text @date.date
   end
 end

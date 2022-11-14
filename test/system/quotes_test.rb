@@ -54,7 +54,9 @@ class QuotesTest < ApplicationSystemTestCase
     assert_text @quote.name
 
     # Click delete quote e check if the quote is there or not
-    click_on "Delete", match: :first
+    accept_confirm do
+      click_on "Delete", match: :first
+    end
     assert_no_text @quote.name
   end
 end
