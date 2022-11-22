@@ -59,4 +59,8 @@ class QuotesTest < ApplicationSystemTestCase
     end
     assert_no_text @quote.name
   end
+
+  test "#total_price returns the total price of all line items of a quote" do
+    assert_equal 2500, quotes(:first).total_price
+  end
 end

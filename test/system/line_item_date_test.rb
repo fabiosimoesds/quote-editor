@@ -1,6 +1,8 @@
 require "application_system_test_case"
 
 class LineItemDateTest < ApplicationSystemTestCase
+  include ActionView::Helpers::NumberHelper
+
   setup do
     login_as user(:accountant) # Login as accountant first
     @quote = Quote.order(created_at: :desc).first # Reference to the first fixture quote
@@ -35,5 +37,7 @@ class LineItemDateTest < ApplicationSystemTestCase
       click_on 'Delete', match: :first
     end
     assert_no_text @date.date
+
+    assert_text number_to_currency(@quote.total_price)
   end
 end
