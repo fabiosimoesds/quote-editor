@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.feature "QuoteIndexPages", type: :feature do
   feature 'User see the quotes#index page' do
     setup do
-      user = create(:accountant_user)
-      p user.company.name
+      user = build(:user)
       visit root_path
       click_on "Sign in", match: :first
       fill_in "Email", with: user.email

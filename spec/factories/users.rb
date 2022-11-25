@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :user do
-    email { 'default@kpmg.com' }
+    email { 'accountant@kpmg.com' }
     password { 'password' }
+    company { Company.first }
 
     trait :accountant do
       email { 'accountant1@kpmg.com' }
