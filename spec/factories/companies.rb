@@ -1,16 +1,6 @@
 FactoryBot.define do
   factory :company do
-    name { 'default' }
-
-    factory :kpmg_company do
-      name { 'KPMG' }
-    end
-
-    trait :pwc do
-      name { 'PwC' }
-    end
-
-    # factory :kpmg_company, traits: [:kpmg]
+    sequence(:name) { |n| "default #{n}"  }
   end
 end
 
